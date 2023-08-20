@@ -1,11 +1,7 @@
-#ifndef HEADER_H
-#define HEADER_H
-
-#include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
+#ifndef MAIN_H
+#define MAIN_H
 
 int _printf(const char *format, ...);
+int _print_integer(int num);
 
 #endif
