@@ -7,5 +7,6 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
+int putchr(char a);
 
 #endif

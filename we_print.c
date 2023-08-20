@@ -1,9 +1,10 @@
 #include "main.h"
 
-/*Protype functions*/
+/*Function prototypes*/
 void processCharSpecifier(va_list args, int *countPtr);
 void processStringSpecifier(va_list args, int *countPtr);
 void processPercentSpecifier(int *countPtr);
+void processIntegerSpecifier(va_list args, int *countPtr);
 
 /**
   * _printf - A function that follows a format to give output
@@ -12,12 +13,10 @@ void processPercentSpecifier(int *countPtr);
   */
 int _printf(const char *format, ...)
 {
-	int countPtr = 0, count = 0;
+	int count = 0, countPtr = 0;
 	char current;
-	va_list args;
 
-	if (format == NULL)
-		return (-1);
+	va_list args;
 
 	va_start(args, format);
 
@@ -28,16 +27,15 @@ int _printf(const char *format, ...)
 			char specifier = *(format++);
 
 			if (specifier == 'c')
-			{
 				processCharSpecifier(args, &countPtr);
-			}
 			else if (specifier == 's')
-			{
 				processStringSpecifier(args, &countPtr);
-			}
 			else if (specifier == '%')
-			{
 				processPercentSpecifier(&countPtr);
+			else if (specifier == 'd' || specifier == 'i')
+			{
+				processIntegerSpecifier(args, &countPtr);
+				current++;
 			}
 			else
 			{

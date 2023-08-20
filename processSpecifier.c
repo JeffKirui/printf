@@ -44,3 +44,22 @@ void processPercentSpecifier(int *countPtr)
 	write(1, "%", 1);
 	(*countPtr)++;
 }
+
+/**
+  * processIntegerSpecifier - thi handles both "d" and "i" conversion
+  * specifiers.
+  * @value: integer variable
+  * Return: Nothing
+  */
+void processIntegerSpecifier(int value)
+{
+	int quotient;
+
+	if (value == 0)
+		return;
+
+	quotient = value / 10;
+
+	processIntegerSpecifier(quotient);
+	putchr(value % 10 + '0');
+}
