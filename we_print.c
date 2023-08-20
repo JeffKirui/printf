@@ -14,8 +14,10 @@ int _printf(const char *format, ...)
 {
 	int countPtr = 0, count = 0;
 	char current;
-
 	va_list args;
+
+	if (format == NULL)
+		return (-1);
 
 	va_start(args, format);
 
