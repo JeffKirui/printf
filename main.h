@@ -1,12 +1,17 @@
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef MAIN_HEADER_H
+#define MAIN_HEADER_H
 
+/* C standard library header files */
 #include <stdio.h>
 #include <stdarg.h>
-#include <string.h>
 #include <unistd.h>
 
-int _printf(const char *format, ...);
-int putchr(char a);
+/* function prototypes */
+int  _printf(const char *format, ...);
+int (*handler(char z))(va_list);
+int put_character(va_list args);
+int put_string(va_list args);
+int put_decimal(va_list arg);
+int put_integer(int x, int count);
 
-#endif
+#endif /*MAIN_HEADER_H */

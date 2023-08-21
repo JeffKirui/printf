@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
-  * putchr - writes the character a to stdout
-  * @a: printed character
+  * _putchr - Write a character to the standard output
+  * @a: The character to be written
   *
-  * Return: 1 (Success)
+  * Return: On success, 1 is returned; on error, -1 is returned.
   */
-
-int putchr(char a)
+int _putchr(char a)
 {
-	return write(1, &a, 1);
+	return (write(1, &a, 1));
 }
