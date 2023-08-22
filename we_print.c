@@ -10,24 +10,23 @@
 int _printf(const char *format, ...)
 {
 	int count;
-	va_list ap;
+	va_list args;
 
 	spec_t specs[] = {
-		{"c", handle_char},
-		{"s", handle_string},
-		{"d", handle_integer},
-		{"i", handle_integer},
-		{"%", handle_percent},
-		{"r", handle_unknown},
+		{"c", processCharSpecifier},
+		{"s", processStringSpecifier},
+		{"%", processPercentSpecifier},
+		{"d", processIntegerSpecifier},
+		{"i", processIntegerSpecifier},
 		{NULL, NULL}
 	};
 
 	if (format == NULL)
 		return (-1);
 
-	va_start(ap, format);
+	va_start(args, format);
 
-	count = get_fmt(format, specs, ap);
-	va_end(ap);
+	count = get_fmt(format, specs, args);
+	va_end(args);
 	return (count);
 }

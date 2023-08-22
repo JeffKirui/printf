@@ -1,6 +1,7 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN_HEADER_H
+#define MAIN_HEADER_H
 
+/* C Standard library header files*/
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -17,18 +18,14 @@ typedef struct spec
 	int (*f)(va_list);
 } spec_t;
 
+/* Function prototypes*/
 int _printf(const char *format, ...);
-int get_fmt(const char *format, spec_t specs[], va_list ap);
-
+int get_fmt(const char *format, spec_t specs[], va_list args);
 int _putchar(char c);
-int print_number(va_list ap);
+int print_number(va_list args);
+int processCharSpecifier(va_list args);
+int processStringSpecifier(va_list args);
+int processIntegerSpecifier(va_list args);
+int processPercentSpecifier(__attribute__((unused))va_list args);
 
-int handle_char(va_list ap);
-int handle_string(va_list ap);
-int handle_integer(va_list ap);
-int handle_percent(__attribute__((unused))va_list ap);
-int handle_binary(va_list ap);
-int handle_unknown(va_list ap);
-int print_binary(unsigned int n);
-
-#endif /* MAIN_H */
+#endif /* MAIN_HEADER_H */

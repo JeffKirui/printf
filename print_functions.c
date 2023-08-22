@@ -1,29 +1,29 @@
 #include "main.h"
 
 /**
- * handle_char - prints chars
- * @ap: arguments
+ * processCharSpecifier - this handles the "%c" conversion specifier
+ * @args: va_list variable containing the arguments
  *
- * Return: 0. Otherwise 1
+ * Return: The number of characters handled (always 1 in this case).
  */
-int handle_char(va_list ap)
+int processCharSpecifier(va_list args)
 {
-	_putchar(va_arg(ap, int));
+	_putchar(va_arg(args, int));
 	return (1);
 }
 
 /**
- * handle_string - prints string of characters
- * @ap: arguments
+ * processStringSpecifier - this handles the "s" conversion specifier
+ * @args: va_list variable contains the arguments
  *
- * Return: 0
+ * Return: The number of characters printed.
  */
-int handle_string(va_list ap)
+int processStringSpecifier(va_list args)
 {
 	char *str;
 	int i;
 
-	str = va_arg(ap, char *);
+	str = va_arg(args, char *);
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -37,38 +37,25 @@ int handle_string(va_list ap)
 }
 
 /**
- * handle_unknown - handles unknown conversion specifiers
- * @ap: arguments
+ * processIntegerSpecifier - this hanldes the "d" and "i" conversion specifiers
+ * @args: va_list variable contains the arguments
  *
- * Return: 0
+ * Return: The number of characters printed.
  */
-int handle_unknown(va_list ap)
-{
-        _putchar('%');
-        _putchar(va_arg(ap, int));
-        return (2);
-}
-
-/**
- * handle_integer - prints integers
- * @ap: arguments
- *
- * Return: nothing
- */
-int handle_integer(va_list ap)
+int processIntegerSpecifier(va_list args)
 {
 	int i;
 
-	i = print_number(ap);
+	i = print_number(args);
 	return (i);
 }
 /**
- * handle_percent - prints integers
- * @ap: arguments
+ * procesPercentSpecifier - this handles the "%" conversion specifier
+ * @args: arguments
  *
- * Return: 0. Otherwise 1
+ * Return: The number of characters handled (always 1 in this case).
  */
-int handle_percent(__attribute__((unused))va_list ap)
+int processPercentSpecifier(__attribute__((unused))va_list args)
 {
 	_putchar('%');
 	return (1);

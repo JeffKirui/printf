@@ -4,11 +4,11 @@
  * get_fmt - get a function
  * @format: structure of input
  * @specs: a struct array
- * @ap: extra arguments
+ * @args: extra arguments
  *
  * Return: number of characters
  */
-int get_fmt(const char *format, spec_t specs[], va_list ap)
+int get_fmt(const char *format, spec_t specs[], va_list args)
 {
 	int i, j, res, print_char = 0;
 
@@ -20,7 +20,7 @@ int get_fmt(const char *format, spec_t specs[], va_list ap)
 			{
 				if (format[i + 1] == specs[j].fmt[0])
 				{
-					res = specs[j].f(ap);
+					res = specs[j].f(args);
 					if (res == -1)
 						return (-1);
 					print_char += res;

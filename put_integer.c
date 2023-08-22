@@ -2,16 +2,16 @@
 
 /**
  * print_number - prints an integer
- * @ap: arguments
+ * @args: arguments
  *
  * Return: number of arguments printed
  */
-int print_number(va_list ap)
+int print_number(va_list args)
 {
 	int i, divisor, len;
 	unsigned int num;
 
-	i = va_arg(ap, int);
+	i = va_arg(args, int);
 	divisor = 1;
 	len = 0;
 	if (i < 0)
