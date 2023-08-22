@@ -26,7 +26,7 @@ int processStringSpecifier(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		str = "(null)";
+		str = "(nil)";
 	}
 
 	for (i = 0; str[i] != '\0'; i++)
@@ -55,18 +55,18 @@ int processIntegerSpecifier(va_list args)
  *
  * Return: The number of characters handled (always 1 in this case).
  */
-int processPercentSpecifier(__attribute__((unused))va_list args)
+int processPercentSpecifier(__attribute__((unused)) va_list args)
 {
 	_putchar('%');
 	return (1);
 }
 
 /**
-  * processBinarySpecifier - this handles the "b" conversion specifier
-  * @args: va_list variable contains the arguments
-  *
-  * Return: The number of characters printed
-  */
+ * processBinarySpecifier - this handles the "b" conversion specifier
+ * @args: va_list variable contains the arguments
+ *
+ * Return: The number of characters printed
+ */
 int processBinarySpecifier(va_list args)
 {
 	unsigned int num;
