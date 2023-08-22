@@ -29,6 +29,5 @@ int processIntegerSpecifier(va_list args);
 int processPercentSpecifier(__attribute__((unused))va_list args);
 int processBinarySpecifier(va_list args);
 int print_bit(unsigned int n);
-int processUnknown(va_list args);
 
 #endif /* MAIN_HEADER_H */
