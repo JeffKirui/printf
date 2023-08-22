@@ -39,8 +39,8 @@ int parse_fmt(const char *format, spec_t specs[], va_list args)
 				{
 					return (-1);
 				}
-			}
-			i++;
+			}			
+			i = i +1;
 		}
 		else
 		{
