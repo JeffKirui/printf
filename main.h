@@ -1,17 +1,34 @@
-#ifndef MAIN_HEADER_H
-#define MAIN_HEADER_H
+#ifndef MAIN_H
+#define MAIN_H
 
-/* C standard library header files */
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 
-/* function prototypes */
-int  _printf(const char *format, ...);
-int (*handler(char z))(va_list);
-int put_character(va_list args);
-int put_string(va_list args);
-int put_decimal(va_list arg);
-int put_integer(int x, int count);
+/**
+ * struct spec - Struct spec
+ *
+ * @fmt:The operator
+ * @f: The associated function
+ */
+typedef struct spec
+{
+	char *fmt;
+	int (*f)(va_list);
+} spec_t;
 
-#endif /*MAIN_HEADER_H */
+int _printf(const char *format, ...);
+int get_fmt(const char *format, spec_t specs[], va_list ap);
+
+int _putchar(char c);
+int print_number(va_list ap);
+
+int handle_char(va_list ap);
+int handle_string(va_list ap);
+int handle_integer(va_list ap);
+int handle_percent(__attribute__((unused))va_list ap);
+int handle_binary(va_list ap);
+int handle_unknown(va_list ap);
+int print_binary(unsigned int n);
+
+#endif /* MAIN_H */
