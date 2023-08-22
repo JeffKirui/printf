@@ -29,7 +29,7 @@ int parse_fmt(const char *format, spec_t specs[], va_list args)
 			}
 			if (format[i] == '\0')
 				break;
-			if (specs[h].fmt == NULL && format[i + 1] != ' ')
+			if (specs[h].fmt == NULL)
 			{
 				if (format[i + 1] != '\0')
 				{
