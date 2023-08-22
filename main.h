@@ -9,8 +9,8 @@
 /**
  * struct spec - Struct spec
  *
- * @fmt:The operator
- * @f: The associated function
+ * @fmt:The format specifier
+ * @f: function pointer that points to the associated processer function
  */
 typedef struct spec
 {
@@ -20,7 +20,7 @@ typedef struct spec
 
 /* Function prototypes*/
 int _printf(const char *format, ...);
-int get_fmt(const char *format, spec_t specs[], va_list args);
+int parse_fmt(const char *format, spec_t specs[], va_list args);
 int _putchar(char c);
 int print_number(va_list args);
 int processCharSpecifier(va_list args);

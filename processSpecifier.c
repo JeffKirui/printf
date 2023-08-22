@@ -1,39 +1,41 @@
 #include "main.h"
 
 /**
- * get_fmt - get a function
+ * parse_fmt - get a function
  * @format: structure of input
  * @specs: a struct array
  * @args: extra arguments
  *
  * Return: number of characters
  */
-int get_fmt(const char *format, spec_t specs[], va_list args)
+int parse_fmt(const char *format, spec_t specs[], va_list args)
 {
-	int i, j, res, print_char = 0;
+	int i, h, count, total_char = 0;
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; specs[j].fmt != NULL; j++)
+			for (h = 0; specs[h].fmt != NULL; h++)
 			{
-				if (format[i + 1] == specs[j].fmt[0])
+				if (format[i + 1] == specs[h].fmt[0])
 				{
-					res = specs[j].f(args);
-					if (res == -1)
+					count = specs[h].f(args);
+					if (count == -1)
 						return (-1);
-					print_char += res;
+					total_char += count;
 					break;
 				}
 			}
-			if (specs[j].fmt == NULL)
+			if (format[i] == '\0')
+				break;
+			if (specs[h].fmt == NULL && format[i + 1] != ' ')
 			{
 				if (format[i + 1] != '\0')
 				{
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
-					print_char += 2;
+					total_char += 2;
 				}
 				else
 				{
@@ -45,8 +47,8 @@ int get_fmt(const char *format, spec_t specs[], va_list args)
 		else
 		{
 			_putchar(format[i]);
-			print_char++;
+			total_char++;
 		}
 	}
-	return (print_char);
+	return (total_char);
 }
