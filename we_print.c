@@ -19,6 +19,7 @@ int _printf(const char *format, ...)
 		{"d", processIntegerSpecifier},
 		{"i", processIntegerSpecifier},
 		{"b", processBinarySpecifier},
+		{"r", processUnknown},
 		{NULL, NULL}
 	};
 

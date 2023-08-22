@@ -77,3 +77,16 @@ int processBinarySpecifier(va_list args)
 
 	return (len);
 }
+
+/**
+  * processUnknown - handles unknown conversion specifiers
+  * @args: va_list variable contains the arguments
+  *
+  * Return: The number of characters handled
+  */
+int processUnknown(va_list args)
+{
+	_putchar('%');
+	_putchar(va_arg(args, int));
+	return (2);
+}
