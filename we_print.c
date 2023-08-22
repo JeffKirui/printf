@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 		{"%", processPercentSpecifier},
 		{"d", processIntegerSpecifier},
 		{"i", processIntegerSpecifier},
+		{"b", processBinarySpecifier},
 		{NULL, NULL}
 	};
 
