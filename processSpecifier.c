@@ -24,7 +24,6 @@ int parse_fmt(const char *format, spec_t specs[], va_list args)
 					if (count == -1)
 						return (-1);
 					total_char += count;
-					i++;
 					break;
 				}
 			}
@@ -39,6 +38,7 @@ int parse_fmt(const char *format, spec_t specs[], va_list args)
 				else
 					return (-1);
 			}
+			i++;
 		}
 		else
 		{
