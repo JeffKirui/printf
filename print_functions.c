@@ -52,7 +52,7 @@ int processIntegerSpecifier(va_list args)
 	return (i);
 }
 /**
- * procesPercentSpecifier - this handles the "%" conversion specifier
+ * processPercentSpecifier - this handles the "%" conversion specifier
  * @args: arguments
  *
  * Return: The number of characters handled (always 1 in this case).
